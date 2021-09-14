@@ -11,7 +11,7 @@ import java.util.List;
 @Entity
 @Table
 @Data
-@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler", "id" })
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class StQuestionType {
 
@@ -23,6 +23,9 @@ public class StQuestionType {
 
     @ElementCollection
     private List<String> options;
+
+    @ManyToOne
+    private StRange range;
 
     @ManyToOne
     private StQuestionCondition condition;

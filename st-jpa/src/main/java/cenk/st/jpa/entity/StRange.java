@@ -3,21 +3,24 @@ package cenk.st.jpa.entity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table
 @Data
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler", "id" })
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class StQuestionPredicate {
+public class StRange {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    @ElementCollection
-    private List<String> exactEquals;
+    @Column(name = "_from")
+    private int from;
+
+    @Column(name = "_to")
+    private int to;
 }

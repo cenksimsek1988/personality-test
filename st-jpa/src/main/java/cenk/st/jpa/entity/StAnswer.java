@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity
 @Table
 @Data
-@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler", "id" })
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class StAnswer {
 

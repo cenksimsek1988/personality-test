@@ -3,6 +3,7 @@ package cenk.st.jpa.entity;
 import cenk.st.jpa.common.StCategory;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -11,7 +12,7 @@ import java.util.List;
 @Entity
 @Table
 @Data
-@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler", "id" })
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class StConditionalQuestion {
 
@@ -23,6 +24,7 @@ public class StConditionalQuestion {
     private StCategory category;
 
     @ManyToOne
+    @JsonProperty("question_type")
     private StQuestionType questionType;
 
     @OneToMany
@@ -30,6 +32,6 @@ public class StConditionalQuestion {
 
 
     @Column
-    private String content;
+    private String question;
 
 }
